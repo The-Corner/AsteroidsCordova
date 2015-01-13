@@ -1,16 +1,17 @@
-
 class Asteroids {
  PVector loc, vel;
  float sz;
+ float hue;
 
  Asteroids(float tempsz){
   sz = tempsz; 
   loc = new PVector(random(width), random(height));
-  vel = new PVector(random(-4,4), random(-4,4)); 
+  vel = new PVector(random(-4,4), random(-4,4));
+  hue = random(360); 
  }
  
  void display(){
-  fill(255);
+  fill(hue, 200, 100);
   ellipse(loc.x, loc.y, sz, sz); 
  }
  
