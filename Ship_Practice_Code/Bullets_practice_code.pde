@@ -1,14 +1,25 @@
-class Bullets {
-  PVector bulletLoc, bulletVel;
-  float bulletSZ = 10;
-  int bullet = 1;
+class Fire {
+  PVector loc;
+  PVector vel;
+  float sz=10;
+  float theta;
 
-  Bullets(Rocketship r) {
-    bulletLoc = player.bulletLoc.get();
-    bulletVel = PVector.fromAngle(player.theta);
+  Fire(Rocketship player) {
+    loc = player.loc.get();
+    vel = PVector.fromAngle(player.theta);
   }
+
   void bulletDisplay() {
-    ellipse(bulletLoc.x, bulletLoc.y, bulletSZ, bulletSZ);
-    bulletLoc.add(bulletVel);
+    fill(255);
+    pushMatrix();
+    translate(loc.x, loc.y);
+    rotate(theta);
+    ellipse(loc.x, loc.y, sz, sz);
+    popMatrix();
+  }
+  
+  void bulletMove(){
+   loc.add(vel); 
   }
 }
+
